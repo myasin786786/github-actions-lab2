@@ -24,6 +24,10 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run tests
+    - name: Verify tests directory
       run: |
-        python -m unittest discover -s tests
+        ls -la
+        ls -la tests
+
+    - name: Run tests
+      run: python -m unittest discover -s tests
