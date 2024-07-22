@@ -4,11 +4,11 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-12, windows-latest]
-        py-version: [3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9]
+    runs-on: ${{ matrix.os }}
 
     steps:
     - name: Checkout code
@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{ matrix.py-version }}
+        python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
       run: |
